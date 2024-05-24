@@ -67,6 +67,7 @@ while place_order:
     i = 1
     # Create a dictionary to store the menu for later retrieval
     menu_items = {}
+    order_list = []
 
     # Print the options to choose from menu headings (all the first level
     # dictionary items in menu).
@@ -147,6 +148,11 @@ while place_order:
                     "Price": selected_item ["Price"],
                     "Quantity": quantity
                     }
+            order_list.append({
+                "Item name": selected_item["Item name"],
+                "Price": selected_item["Price"],
+                "Quantity": quantity
+            })   
 
             # Tell the customer that their input isn't valid
         elif int(menu_subcategory) not in menu_items.keys():
@@ -201,12 +207,12 @@ print("--------------------------|--------|----------")
 
 # 6. Loop through the items in the customer's order
 
-order_list = []
-order_list.append({
-   "Item name": selected_item["Item name"],
-   "Price": selected_item["Price"],
-   "Quantity": quantity
-   })
+# order_list = []
+# order_list.append({
+   # "Item name": selected_item["Item name"],
+   # "Price": selected_item["Price"],
+   # "Quantity": quantity
+   # })
 
 for item in order_list:
     # 7. Store the dictionary items as variables
@@ -228,4 +234,8 @@ for item in order_list:
     # Multiply the price by quantity for each item in the order list, then sum()
     # and print the prices.
     total_cost = sum(item["Price"] * item["Quantity"] for item in order_list)
+    total_cost + sum(item["Price"]* item["Quantity"] for item in order_list)
     print(f"\nTotal cost: ${total_cost:.2f}")
+    total_cost.append({item_price}*{quantity})
+
+
